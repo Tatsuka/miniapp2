@@ -1,0 +1,7 @@
+
+<div class="contents row" >
+   <% @articles.each do |article| %>
+     <p><%= simple_format(article.text) %></p>
+    <% end %>
+  <%= paginate(@articles) %>
+</div>   

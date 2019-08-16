@@ -1,0 +1,12 @@
+ <%= form_with url: "/topics/#{@topic.id}", method: :patch do %>
+  <div class="field">
+      <p>
+        編集する
+      </p>  
+    <p><%= label_tag :text %><br/>
+      <textarea cols="30" name="text" placeholder="text" rows="10"><%= @topic.text %></textarea>
+    </p>
+    <%= submit_tag '更新！', class: "topic_btns" %>
+  </div>
+<% end %>
+

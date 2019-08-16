@@ -1,0 +1,8 @@
+  <%= simple_format(topic.text) %>
+                  <% if user_signed_in? && current_user.id == topic.user_id %>
+                    <div class="topic_btn">
+                      <%= link_to '編集', "/topics/#{topic.id}/edit", method: :get, class: "topic_btns"%>
+                      <%= link_to '削除', "/topics/#{topic.id}", method: :delete, class: "topic_btns"%>
+                    </div>
+                  <% end %>
+              </div>

@@ -1,0 +1,12 @@
+<%= form_with url: miniapp_path, method: :post do %>
+  <div class="field">
+      <p>
+        投稿する
+      </p>  
+    <p><%= label_tag :text %><br/>
+      <textarea cols="30" name="text" placeholder="text" rows="10"></textarea>
+    </p>
+    <%= submit_tag '投稿！', class: "topic_btns"  %>
+    
+  </div>
+<% end %>

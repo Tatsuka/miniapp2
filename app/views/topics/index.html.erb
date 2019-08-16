@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>miniapp_by_Taki</title>
+  </head>
+  <body>
+      <header class="header">
+          <div class="header__bar">
+            <h1 class="grid-6"><a href="/">mini_app!!</a></h1>
+            <% if user_signed_in? %>
+                <div class="user_nav grid-6">
+
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top_btns"%>
+                    <a class="top_btns" href="/topics/new">投稿する</a>                 
+                 </div>
+              <% else %>
+                  <div class="grid-6">
+                    <%= link_to "ログイン", new_user_session_path, class: "top_btns"%>
+                    <%= link_to "新規登録", new_user_registration_path, class: "top_btns" %>
+                  </div>
+              <% end %>
+           </div>
+          <% if flash[:notice] %>
+            <p class="flash"><%= flash[:notice] %></p>
+          <% end %>               
+      </header>             
+            <% @topics.each do |topic| %>
+            <div class="contents" > 
+              <%= render partial: "topic", locals: { topic: topic } %>
+            <% end %>
+          </div>
+          <footer class="footer__ber">
+            <%= paginate(@topics) %>
+          </footer>
+  </body>
+</html>
